@@ -8,6 +8,9 @@
 <head>
 	<title>List Customers</title>
 	
+	<!-- reference our style sheet -->
+
+	<link href="<c:url value="/content/css/style.css" />" rel="stylesheet">
 
 </head>
 
