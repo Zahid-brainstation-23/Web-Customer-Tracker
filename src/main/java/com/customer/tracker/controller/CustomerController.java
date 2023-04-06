@@ -3,9 +3,10 @@ package com.customer.tracker.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.customer.tracker.dao.CustomerDao;
+import com.customer.tracker.service.CustomerService;
 
 
 @Controller
@@ -14,11 +15,11 @@ public class CustomerController {
 	
 	
 	@Autowired
-	private CustomerDao customerDaoImpl;
+	private CustomerService customerService;
 	
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public String getCustomerList(Model model) {
-		model.addAttribute("customers",customerDaoImpl.getCustomers());
+		model.addAttribute("customers",customerService.getCustomers());
 		return "list-customers";
 	}
 	
