@@ -51,7 +51,9 @@
 						<td>${tempCustomer.firstName}</td>
 						<td>${tempCustomer.lastName}</td>
 						<td>${tempCustomer.email}</td>
-						<td><a href="${pageContext.request.contextPath}/customer/showFormForUpdate?customerId=${tempCustomer.id}" >Update</a></td>
+						<td><a href="${pageContext.request.contextPath}/customer/showFormForUpdate?customerId=${tempCustomer.id}" >Update</a>
+						|
+						<a href="${pageContext.request.contextPath}/customer/deleteCustomer?customerId=${tempCustomer.id}" >Delete</a></td>
 					</tr>
 
 				</c:forEach>
