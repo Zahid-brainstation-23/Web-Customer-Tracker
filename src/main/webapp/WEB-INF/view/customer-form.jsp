@@ -1,5 +1,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 
 <!DOCTYPE html>
 
@@ -30,36 +31,27 @@
 				<h2>CRM - Customer Relationship Manager</h2>
 			</div>
 		</div>
+		
+		<h3>Save Customer</h3>
+	<form:form action="saveCustomer" modelAttribute="customer"
+		method="post">
+		 <label>First Name:</label>
+		<form:input path="firstName" class="form-control"/>
+		
+		<label>Last Name:</label>
+		<form:input path="lastName" class="form-control" />
+		
+		<label>Email address</label>
+		<form:input path="email" class="form-control" />
+		<br>
+		<input type="submit" value="Add"/>
+		
+	</form:form>
 
-		<a href="showFormForAdd" class="btn btn-info">Add Customer</a>
-		<div id="content">
 
-
-
-			<table>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-				</tr>
-
-				<!-- loop over and print our customers -->
-				<c:forEach var="tempCustomer" items="${customers}">
-
-					<tr>
-						<td>${tempCustomer.firstName}</td>
-						<td>${tempCustomer.lastName}</td>
-						<td>${tempCustomer.email}</td>
-					</tr>
-
-				</c:forEach>
-
-			</table>
-
-		</div>
-
+	<a href="${pageContext.request.contextPath}/customer/list">Back to Home page</a>
 	</div>
-
+	
 
 </body>
 

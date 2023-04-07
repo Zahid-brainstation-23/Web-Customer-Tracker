@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.customer.tracker.entity.Customer;
 import com.customer.tracker.service.CustomerService;
 
 
@@ -21,6 +22,13 @@ public class CustomerController {
 	public String getCustomerList(Model model) {
 		model.addAttribute("customers",customerService.getCustomers());
 		return "list-customers";
+	}
+	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model model) {
+		Customer customer = new Customer();
+		model.addAttribute("customer",customer);
+		return "customer-form";
 	}
 	
 }
